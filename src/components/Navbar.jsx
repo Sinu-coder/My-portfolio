@@ -49,49 +49,50 @@ export default function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          {/* MENU */}
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav ms-auto nav-gap align-items-center">
-              {items.map((item) => {
-                const path = item === "Home" ? "/" : `/${item.toLowerCase()}`;
+         {/* MENU */}
+<div className="collapse navbar-collapse" id="navbarNav">
+  <ul className="navbar-nav ms-auto nav-gap align-items-center">
+    {items.map((item) => {
+      const path = item === "Home" ? "/" : `/${item.toLowerCase()}`;
 
-                if (item === "Resume") {
-                  return (
-                    <li key={item} className="nav-item">
-                      <a
-  className="nav-link nav-a underline-hover"
-  href="/resume.pdf"
-  target="_blank"
-  rel="noopener noreferrer"
-  onClick={closeNavbar}
->
-  {item}
-</a>
-                    </li>
-                  );
-                }
+      if (item === "Resume") {
+        return (
+          <li key={item} className="nav-item">
+            <a
+              className="nav-link nav-a underline-hover"
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={closeNavbar}
+            >
+              {item}
+            </a>
+          </li>
+        );
+      }
 
-                return (
-                  <li key={item} className="nav-item">
-                    <Link className="nav-link nav-a underline-hover" to={path} onClick={closeNavbar}>
-                    {item}
-                    </Link>
-                  </li>
-                );
-              })}
+      return (
+        <li key={item} className="nav-item">
+          <Link className="nav-link nav-a underline-hover" to={path} onClick={closeNavbar}>
+            {item}
+          </Link>
+        </li>
+      );
+    })}
+  </ul>
+</div>
 
-              {/* DARK MODE */}
-              <li className="nav-item d-flex align-items-center">
-                <button className="dark-toggle-btn" onClick={toggleDarkMode}>
-                  {darkMode ? (
-                    <i className="bi bi-sun-fill"></i>
-                  ) : (
-                    <i className="bi bi-moon-stars-fill"></i>
-                  )}
-                </button>
-              </li>
-            </ul>
-          </div>
+{/* DARK MODE BUTTON – OUTSIDE HAMBURGER */}
+<div className="d-flex align-items-center ms-3">
+  <button className="dark-toggle-btn" onClick={toggleDarkMode}>
+    {darkMode ? (
+      <i className="bi bi-sun-fill"></i>
+    ) : (
+      <i className="bi bi-moon-stars-fill"></i>
+    )}
+  </button>
+</div>
+
 
         </div>
       </nav>
